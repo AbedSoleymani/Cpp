@@ -1,66 +1,87 @@
-# Cpp
+# C++ Learning Repository
 
-In this repo, I will share my experiences in revisiting C++. I will cover basic, intermediate, and advanced, but important core concepts of C++ which are necessary for recalling and high-level learning of C++.
+Welcome to my C++ learning repository! Here, I'll share my experiences and insights into C++. This repository covers fundamental to advanced concepts in C++, serving as a resource for revisiting the language and for high-level learning.
+
+## Table of Contents
+1. [Introduction](#introduction)
+   - [Applications of C++](#applications-of-c++)
+   - [C++ Standard Library](#c++-standard-library)
+   - [Compiling](#compiling)
+
+2. [Topics](#topics)
+   - [Basics](#basics)
+   - [Intermediate](#intermediate)
+   - [Advanced](#advanced)
+
+3. [Various Points](#various-points)
+   - [Naming Conventions](#naming-conventions)
+   - [Increment and Decrement](#increment-and-decrement)
+   - [Pointers](#pointers)
+   - [Passing Arguments](#passing-arguments)
 
 ## Introduction
-### APPLICATIONS OF C++
-* Developing high-performance applications
-* Video games
-* Device drivers
-* Web browsers
-* Servers
-* Operating systems
 
-### C++ STANDARD LIBRARY
-DATA STRUCTURES: List and Map
-ALGORITHMS: Searching and Sorting
+### Applications of C++
+C++ is a versatile language with applications in various domains, including:
+- Developing high-performance applications
+- Video games
+- Device drivers
+- Web browsers
+- Servers
+- Operating systems
 
-### Compiling:
-In C++, compiling is the process of translating human-readable C++ source code into machine-executable code that a computer can understand and run. This process involves several steps, and it results in the creation of an executable file that you can run on your computer.
+### C++ Standard Library
+The C++ Standard Library includes essential components:
+- **Data Structures:** List and Map
+- **Algorithms:** Searching and Sorting
 
-## Topics of The Repo
-## BASICS
-* Fundamentals of programming in C++
-* Data types
-* Arrays
-* Decision making statements
-* Loops
-* Functions
+### Compiling
+In C++, compiling translates human-readable source code into machine-executable code. The process involves creating an executable file for running on a computer.
 
-## INTERMEDIATE
-* Pointers
-* Structures
-* Enumerations
-* Exceptions
-* Templates
-* Containers
+## Topics
 
-## ADVANCED
-* Classes and objects
-* Access modifiers
-* Constructors
-* Encapsulation
-* Abstraction
-* Inheritance
-* Polymorphism
+### Basics
+- Fundamentals of C++ programming
+- Data types
+- Arrays
+- Decision-making statements
+- Loops
+- Functions
+
+### Intermediate
+- Pointers
+- Structures
+- Enumerations
+- Exceptions
+- Templates
+- Containers
+
+### Advanced
+- Classes and objects
+- Access modifiers
+- Constructors
+- Encapsulation
+- Abstraction
+- Inheritance
+- Polymorphism
 
 ## Various Points
-### Naming Conventions:
-C++ is a STATICALLY-TYPED language.
-```
-int file_size; // Snake Case: good for naming variables and constants
-int FileSize; // Pascal Case: good for naming classes
-int fileSize; // Camel Case: more popular in C++
-```
-Snake and camel cases are the most popular conventions in this language. Be mindful that to follow a consistent convention in your codes to improve its clarity. In this repo I will follow the camel case convention.
 
-### Good points
-```
-int × = 10;
+### Naming Conventions
+C++ follows various naming conventions:
+- Snake Case: Suitable for variables and constants (e.g., `int file_size`).
+- Pascal Case: Ideal for naming classes (e.g., `int FileSize`).
+- Camel Case: More popular in C++ (e.g., `int fileSize`).
+
+Consistency in convention usage enhances code clarity. Snake and camel cases are the most popular conventions in this language. Tthis repo follows the camel case convention. Moreover, please note that C++ is a STATICALLY-TYPED language, and the type of a parameter should be defined at the declaration stage and cannot be changed.
+
+### Increment and Decrement
+```cpp
+int x = 10;
 int y = x++; // x = 11, y = 10
 ```
-```
-int × = 10;
+```cpp
+int x = 10;
 int z = ++x; // x = 11, z = 11
 ```
 
@@ -80,28 +101,28 @@ Using pointers in C++ offers several advantages over using variables directly:
 In C++, there are several methods for passing arguments to functions, each with its own characteristics and use cases. The primary methods for passing arguments to functions in C++ are:
 
 1. Pass by Value: In this method, a copy of the argument is passed to the function. Changes made to the parameter inside the function do not affect the original argument.
-```
+```cpp
 void function(int x) {
     // Changes to 'x' do not affect the original value
     x = x + 1;
 }
 ```
 2. Pass by Reference: This method allows a function to receive a reference to the original variable. Any modifications made to the parameter inside the function directly affect the original argument.
-```
+```cpp
 void function(int& x) {
     // Changes to 'x' affect the original value
     x = x + 1;
 }
 ```
 3. Pass by Pointer: In this method, a pointer to the argument is passed to the function. Similar to pass by reference, changes made to the parameter through the pointer affect the original argument.
-```
+```cpp
 void function(int* ptr) {
     // Changes to the value pointed to by 'ptr' affect the original value
     (*ptr) = (*ptr) + 1;
 }
 ```
 4. Pass by Const Reference: This method is used to pass read-only references to functions. It ensures that the function cannot modify the original argument.
-```
+```cpp
 void function(const int& x) {
     // 'x' is read-only; cannot be modified here
 }
