@@ -127,3 +127,11 @@ void function(const int& x) {
     // 'x' is read-only; cannot be modified here
 }
 ```
+### Access Modifiers
+In C++, access modifiers are keywords used to control the visibility and accessibility of class members (i.e., variables and functions) from outside the class. C++ has three main access modifiers: public, private, and protected.
+
+1. Public: Members declared as public are accessible from any part of the program. This means that both member functions and variables marked as public can be accessed and used from outside the class.
+2. Private: Members declared as private are only accessible within the class where they are defined. They are not accessible from outside the class. This is a fundamental principle of encapsulation, ensuring that the internal details of a class are hidden from external code.
+3. Protected: Members declared as protected are similar to private in that they are not directly accessible from outside the class. However, they have additional significance when dealing with inheritance. Inheritance allows derived classes to access protected members of the base class, while still keeping them hidden from other code.
+
+These access modifiers are essential for encapsulation, which is one of the fundamental principles of object-oriented programming. Encapsulation helps control access to the internal state of an object, promoting data integrity and reducing the risk of unintended interference or errors in the program.
