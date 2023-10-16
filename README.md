@@ -18,6 +18,7 @@ Welcome to my C++ learning repository! Here, I'll share my experiences and insig
    - [Increment and Decrement](#increment-and-decrement)
    - [Pointers](#pointers)
    - [Passing Arguments](#passing-arguments)
+   - [Access Modifiers](#access_modifiers)
 
 ## Introduction
 
