@@ -19,6 +19,7 @@ Welcome to my C++ learning repository! Here, I'll share my experiences and insig
    - [Pointers](#pointers)
    - [Passing Arguments](#passing-arguments)
    - [Access Modifiers](#access_modifiers)
+   - [Getters and Setters](#getters_setters)
 
 ## Introduction
 
@@ -136,3 +137,44 @@ In C++, access modifiers are keywords used to control the visibility and accessi
 3. Protected: Members declared as protected are similar to private in that they are not directly accessible from outside the class. However, they have additional significance when dealing with inheritance. Inheritance allows derived classes to access protected members of the base class, while still keeping them hidden from other code.
 
 These access modifiers are essential for encapsulation, which is one of the fundamental principles of object-oriented programming. Encapsulation helps control access to the internal state of an object, promoting data integrity and reducing the risk of unintended interference or errors in the program.
+
+### Getters and Setters
+In C++, getters and setters are methods used to control access to the private member variables (data members) of a class. They are essential for encapsulation, one of the fundamental principles of object-oriented programming. Getters and setters provide controlled access to the internal state of a class, allowing you to get or set the values of private members.
+
+#### Getters
+- Getters are used to access the values of private data members.
+- They provide read-only access to the data.
+- Getters typically have a return type and return the value of the data member.
+- Use getters when you want to retrieve the value of a private member from outside the class.
+
+```cpp
+class MyClass {
+private:
+    int myValue;
+
+public:
+    int getMyValue() {
+        return myValue;
+    }
+};
+```
+#### Setters
+- Setters are used to modify or update the values of private data members.
+- They provide a controlled way to update the data.
+- Setters do not have a return type (usually void) but take an argument to set the new value.
+- Use setters when you want to change the value of a private member, often with input validation or other logic.
+```cpp
+class MyClass {
+private:
+    int myValue;
+
+public:
+    void setMyValue(int newValue) {
+        if (newValue >= 0) {
+            myValue = newValue;
+        } else {
+            // Optionally handle invalid input
+        }
+    }
+};
+```
