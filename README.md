@@ -21,6 +21,7 @@ Welcome to my C++ learning repository! Here, I'll share my experiences and insig
    - [Access Modifiers](#access-modifiers)
    - [Encapsulation](#encapsulation)
    - [Modular Programming](#modular-programming)
+   - [Abstraction](#abstraction)
 
 ## Introduction
 
@@ -248,3 +249,53 @@ After creating `student_app` as the compiled file, you can execute the app using
 ```bash
 ./student_app
 ```
+
+### Abstraction
+
+In C++, abstraction is a fundamental concept in object-oriented programming (OOP) that involves representing the essential features and behavior of an object or class while hiding the internal details and complexities. Abstraction allows you to create simplified models of real-world entities, focusing on what an object does rather than how it does it. It is one of the key principles of OOP, along with encapsulation, inheritance, and polymorphism.
+
+Here are the key aspects of abstraction in C++:
+
+1. **Hiding Complexity**: Abstraction hides the internal workings of an object or class, exposing only the necessary functionality to the user.
+
+2. **Creating Classes**: Abstraction is often implemented through class definitions. Classes serve as blueprints for objects, defining attributes and methods.
+
+3. **Public Interface**: Abstraction defines a public interface for the class, representing the contract between the class and its users.
+
+4. **Data and Behavior Separation**: Abstraction separates the data (attributes) and behavior (methods) of an object, allowing changes to the internal implementation without affecting external code.
+
+5. **Encapsulation**: Abstraction is closely related to encapsulation, where data and methods are bundled into a single unit (the class).
+
+```cpp
+class Shape {
+public:
+    // Abstract method to calculate area (no implementation here)
+    virtual double CalculateArea() = 0;
+
+    // Concrete method to display the shape's name
+    void ShowShapeName() {
+        cout << "This is a shape." << endl;
+    }
+};
+
+class Circle : public Shape {
+private:
+    double radius;
+
+public:
+    Circle(double r) : radius(r) {}
+
+    // Implementation of the abstract method for calculating the area
+    double CalculateArea() override {
+        return 3.14159265 * radius * radius;
+    }
+};
+
+int main() {
+    Circle circle(5.0);
+    circle.ShowShapeName();
+    cout << "Area: " << circle.CalculateArea() << endl;
+    return 0;
+}
+```
+In this example, the `Shape` class is an abstract base class that defines an abstract method `CalculateArea()` for calculating the area of different shapes. The `Circle` class is a concrete derived class that provides an implementation for the `CalculateArea()` method. The `Shape` class represents abstraction because it defines a common interface (`CalculateArea`) for shapes, but it doesn't provide specific implementations for every shape, allowing for flexibility in extending the hierarchy.
