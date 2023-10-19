@@ -22,6 +22,7 @@ Welcome to my C++ learning repository! Here, I'll share my experiences and insig
    - [Encapsulation](#encapsulation)
    - [Modular Programming](#modular-programming)
    - [Abstraction](#abstraction)
+   - [Templates](#templates)
 
 ## Introduction
 
@@ -299,3 +300,67 @@ int main() {
 }
 ```
 In this example, the `Shape` class is an abstract base class that defines an abstract method `CalculateArea()` for calculating the area of different shapes. The `Circle` class is a concrete derived class that provides an implementation for the `CalculateArea()` method. The `Shape` class represents abstraction because it defines a common interface (`CalculateArea`) for shapes, but it doesn't provide specific implementations for every shape, allowing for flexibility in extending the hierarchy.
+
+### Templates
+
+In C++, templates are a powerful feature that allows us to write generic code that can work with different data types without sacrificing type safety. Templates enable us to create functions, classes, and data structures that can operate on a variety of data types while providing strong type checking at compile time. The primary goal of templates is to promote code reusability and flexibility.
+
+There are two main types of templates in C++:
+
+1. **Function Templates**: Function templates allow you to define a generic function that can work with different data types. You specify the data type(s) as a template parameter, and the compiler generates type-specific versions of the function when it is used with specific data types.
+```cpp
+#include <iostream>
+
+template <typename T>
+T Add(T a, T b) {
+    return a + b;
+}
+
+int main() {
+    int sum1 = Add(5, 7);         // Add integers
+    double sum2 = Add(3.14, 2.71); // Add doubles
+
+    std::cout << "Sum 1: " << sum1 << std::endl;
+    std::cout << "Sum 2: " << sum2 << std::endl;
+
+    return 0;
+}
+```
+We can use this function with different data types like integers, doubles, and more.
+
+2. **Class Templates**: Class templates allow you to define generic classes that can work with various data types or object types. Like function templates, you specify the data type(s) as template parameters, and the compiler generates class definitions based on the provided data types.
+```cpp
+#include <iostream>
+
+template <typename T1, typename T2>
+class Pair {
+private:
+    T1 first;
+    T2 second;
+
+public:
+    Pair(const T1& a, const T2& b) : first(a), second(b) {}
+
+    T1 GetFirst() const {
+        return first;
+    }
+
+    T2 GetSecond() const {
+        return second;
+    }
+};
+
+int main() {
+    // Create a Pair of int and string
+    Pair<int, std::string> pair1(42, "Hello");
+
+    // Create a Pair of double and char
+    Pair<double, char> pair2(3.14159265, 'A');
+
+    // Access and print the values
+    std::cout << "Pair 1: " << pair1.GetFirst() << ", " << pair1.GetSecond() << std::endl;
+    std::cout << "Pair 2: " << pair2.GetFirst() << ", " << pair2.GetSecond() << std::endl;
+
+    return 0;
+}
+```
