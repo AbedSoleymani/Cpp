@@ -23,7 +23,8 @@ Welcome to my C++ learning repository! Here, I'll share my experiences and insig
    - [Modular Programming](#modular-programming)
    - [Abstraction](#abstraction)
    - [Templates](#templates)
-   - [Unsafe vs. Managed Languages](#unsafe-vs.-managed-languages)
+   - [Unsafe versus Managed Languages](#unsafe-versus-managed-languages)
+   - [Containers](#containers)
 
 ## Introduction
 
@@ -365,8 +366,9 @@ int main() {
     return 0;
 }
 ```
-### Unsafe vs. Managed Languages
+### Unsafe versus Managed Languages
 The terms "unsafe" and "managed" refer to two different programming language categories, each with distinct characteristics:
+
 **Managed Programming Language**:
 - **Memory Management**: Managed languages, like Java, C#, and Python, provide automatic memory management. They handle memory allocation and deallocation, freeing developers from manual memory management tasks, such as allocating and releasing memory.
 - **Garbage Collection**: Managed languages often employ a garbage collector, a system that automatically identifies and reclaims memory that is no longer in use. This helps prevent memory leaks and other memory-related issues.
@@ -387,3 +389,154 @@ The choice between managed and unsafe languages depends on the specific requirem
 - Unsafe languages are chosen for systems programming, embedded systems, real-time applications, and scenarios where fine-grained control over memory and hardware resources is necessary, even if it comes at the cost of increased development complexity.
 
 Hybrid languages, like Rust, aim to combine some of the advantages of both managed and unsafe languages, offering features for memory safety and control. The choice of language depends on the trade-offs and requirements of the project.
+
+### Containers
+In C++, "containers" refer to data structures or classes that are used to store and manage collections of objects. Containers provide a convenient way to organize and manipulate groups of data in a structured and efficient manner. C++ offers a variety of container classes as part of the Standard Template Library (STL) and you can also create your own custom container classes.
+
+Here are some common types of containers in C++:
+
+1. **Sequence Containers**:
+- `std::vector`: A dynamic array that allows efficient random access and resizing.
+```cpp
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<int> numbers;
+
+    // Adding elements to the vector
+    numbers.push_back(1);
+    numbers.push_back(2);
+    numbers.push_back(3);
+
+    // Accessing elements
+    for (int num : numbers) {
+        std::cout << num << " ";
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+- `std::list`: A doubly-linked list that allows efficient insertions and deletions but has slower random access.
+```cpp
+#include <iostream>
+#include <list>
+
+int main() {
+    std::list<int> numbers;
+
+    // Adding elements to the list
+    numbers.push_back(1);
+    numbers.push_back(2);
+    numbers.push_back(3);
+
+    // Accessing elements
+    for (int num : numbers) {
+        std::cout << num << " ";
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+- `std::deque`: A double-ended queue that combines features of vectors and lists.
+2. **Associative Containers**:
+- `std::set`: A sorted set that stores unique values in ascending order.
+```cpp
+#include <iostream>
+#include <set>
+
+int main() {
+    std::set<int> uniqueNumbers;
+
+    // Adding elements to the set
+    uniqueNumbers.insert(3);
+    uniqueNumbers.insert(1);
+    uniqueNumbers.insert(2);
+
+    // Iterating through the set (values are automatically sorted)
+    for (int num : uniqueNumbers) {
+        std::cout << num << " ";
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+- `std::multiset`: Similar to `std::set`, but allows duplicate values.
+- `std::map`: A sorted associative array that stores key-value pairs (similar to Python dictionaries).
+```cpp
+#include <iostream>
+#include <map>
+
+int main() {
+    std::map<std::string, int> studentScores;
+
+    // Adding key-value pairs to the map
+    studentScores["Alice"] = 95;
+    studentScores["Bob"] = 88;
+    studentScores["Charlie"] = 75;
+
+    // Accessing values by key
+    std::cout << "Alice's score: " << studentScores["Alice"] << std::endl;
+
+    return 0;
+}
+```
+- `std::multimap`: Similar to `std::map`, but allows duplicate keys.
+3. **Unordered Containers**:
+- `std::unordered_set`: A hash-based set that stores unique values.
+- `std::unordered_multiset`: Similar to `std::unordered_set`, but allows duplicate values.
+- `std::unordered_map`: A hash-based associative array that stores key-value pairs.
+- `std::unordered_multimap`: Similar to `std::unordered_map`, but allows duplicate keys.
+4. **Container Adapters**:
+- `std::stack`: An adapter that provides a stack (Last-In, First-Out) interface.
+```cpp
+#include <iostream>
+#include <stack>
+
+int main() {
+    std::stack<int> numberStack;
+
+    // Push elements onto the stack
+    numberStack.push(1);
+    numberStack.push(2);
+    numberStack.push(3);
+
+    // Pop elements from the stack (Last-In, First-Out)
+    while (!numberStack.empty()) {
+        std::cout << numberStack.top() << " ";
+        numberStack.pop();
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+- `std::queue`: An adapter that provides a queue (First-In, First-Out) interface.
+- `std::priority_queue`: An adapter that provides a priority queue interface.
+5. **Array Containers**:
+- `std::array`: A fixed-size array with a known size at compile time.
+```cpp
+#include <iostream>
+#include <array>
+
+int main() {
+    std::array<int, 4> numbers = {1, 2, 3, 4};
+
+    // Accessing elements
+    for (int num : numbers) {
+        std::cout << num << " ";
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+6. **Custom Containers**: We can create your own custom container classes tailored to specific needs.
